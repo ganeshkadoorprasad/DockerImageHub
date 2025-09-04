@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flask + Jinja Example</title>
+    <title>Hugging Face + Flask Demo</title>
 </head>
 <body>
-    <h1>Hello, {{ name }}!</h1>
-    <p>Welcome to Flask with Jinja templating.</p>
+    <h1>Sentiment Analysis with Hugging Face 🤗</h1>
+    <form method="POST">
+        <textarea name="user_input" rows="4" cols="50" placeholder="Type something..."></textarea><br><br>
+        <button type="submit">Analyze</button>
+    </form>
 
-    {% if name == "Prasad" %}
-        <p>You’re the admin!</p>
-    {% else %}
-        <p>Guest user.</p>
-    {% endif %} 
-
-    <ul>
-    {% for item in ["Apple", "Banana", "Cherry"] %}
-        <li>{{ item }}</li>
-    {% endfor %}
-    </ul>
+    {% if result %}
+        <h2>Result:</h2>
+        <p><strong>Label:</strong> {{ result.label }}</p>
+        <p><strong>Confidence:</strong> {{ (result.score * 100) | round(2) }}%</p>
+    {% endif %}
 </body>
 </html>
