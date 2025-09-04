@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask + Jinja Example</title>
+</head>
+<body>
+    <h1>Hello, {{ name }}!</h1>
+    <p>Welcome to Flask with Jinja templating.</p>
+
+    {% if name == "Prasad" %}
+        <p>You’re the admin!</p>
+    {% else %}
+        <p>Guest user.</p>
+    {% endif %}
+
+    <ul>
+    {% for item in ["Apple", "Banana", "Cherry"] %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
